@@ -15,9 +15,12 @@ public:
     void run() override;
     void connecttoDatabase();
     void belepesEllenorzese(QByteArray uzenet);
+    void regisztracioEllenorzese(QByteArray uzenet);
+    void szamlaletrehozas();
 
 signals:
     void error(QTcpSocket::SocketError socketerror);
+    void fiokhozzaadva();
 
 public slots:
     void readyRead();
@@ -27,6 +30,7 @@ private:
     QTcpSocket *socket;
     int socketDescriptor;
     QSqlDatabase db;
+    QMap<int,QString> felhasznalok;
 };
 
 #endif // MYTHREAD_H

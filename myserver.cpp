@@ -3,6 +3,7 @@
 
 MyServer::MyServer(QObject *parent) : QTcpServer(parent)
 {
+
 }
 
 void MyServer::StartServer()
@@ -15,6 +16,9 @@ void MyServer::StartServer()
     {
         qDebug() << "Server started!";
     }
+
+    mainwindow = new MyMainWindow;
+    mainwindow->show();
 }
 
 void MyServer::incomingConnection(qintptr handle)
@@ -23,4 +27,5 @@ void MyServer::incomingConnection(qintptr handle)
     MyThread *thread=new MyThread(handle,this);
     connect(thread,SIGNAL(finished()),thread,SLOT(deleteLater()));
     thread->start();
+    connect(thread,SIGNAL(fiokhozzaadva()),mainwindow,SLOT(comboboxfrissit()));
 }

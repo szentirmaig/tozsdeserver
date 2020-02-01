@@ -3,6 +3,7 @@
 
 #include <QTcpServer>
 #include "mythread.h"
+#include "mymainwindow.h"
 
 
 class MyServer : public QTcpServer
@@ -20,7 +21,7 @@ protected:
     void incomingConnection(qintptr handle) override;
 
 private:
-
+    MyMainWindow *mainwindow;
 };
 
 #endif // MYSERVER_H
