@@ -125,11 +125,13 @@ void MyThread::regisztracioEllenorzese(QByteArray uzenet)
 void MyThread::szamlaletrehozas()
 {
     QSqlQuery insertszamla(db);
-    insertszamla.prepare("INSERT INTO szamlak VALUES(?,?,?,?)");
+    insertszamla.prepare("INSERT INTO szamlak VALUES(?,?,?,?,?,?)");
     insertszamla.addBindValue("USD");
     insertszamla.addBindValue(10000000);
     insertszamla.addBindValue(10000000);
     insertszamla.addBindValue(0);
+    insertszamla.addBindValue(0);
+    insertszamla.addBindValue(10000000);
     if(!insertszamla.exec())
     {
         qDebug()<< "Nem jott letre a szamla (" << insertszamla.lastError() << ")";

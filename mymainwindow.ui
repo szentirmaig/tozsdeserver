@@ -88,13 +88,23 @@
      <property name="currentIndex">
       <number>2</number>
      </property>
-     <widget class="QWidget" name="tab_nyitott_poziciok">
+     <widget class="QWidget" name="tab_konyveles">
       <attribute name="title">
-       <string>Nyitott pozíciók</string>
+       <string>Könyvelés</string>
       </attribute>
-      <layout class="QFormLayout" name="formLayout">
-       <item row="0" column="0" colspan="2">
-        <widget class="QTableView" name="tableView_nyitott_poziciok"/>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <widget class="QTableView" name="tableView_konyveles"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_keszlet">
+      <attribute name="title">
+       <string>Készlet</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="0">
+        <widget class="QTableView" name="tableView_keszlet"/>
        </item>
       </layout>
      </widget>
@@ -102,19 +112,29 @@
       <attribute name="title">
        <string>Megbízások</string>
       </attribute>
-      <layout class="QFormLayout" name="formLayout_2">
-       <item row="0" column="0" colspan="2">
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="0" column="0">
         <widget class="QTableView" name="tableView_megbizasok"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_lezart_poziciok">
       <attribute name="title">
        <string>Lezárt pozíciók</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
         <widget class="QTableView" name="tableView_lezart_poziciok"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_muveletek">
+      <attribute name="title">
+       <string>Műveletek</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="0" column="0">
+        <widget class="QTableView" name="tableView_muveletek"/>
        </item>
       </layout>
      </widget>

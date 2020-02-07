@@ -69,16 +69,23 @@ void MyMainWindow::on_comboBox_felhasznalok_currentIndexChanged(int index)
     ui->tableView_szamla->setItemDelegateForColumn(4,new NumberFormatDelegate(this));
 
 
-    QSqlTableModel *poziciokmodel = new QSqlTableModel(this,maindb);
-    poziciokmodel->setTable("nyitott_poziciok");
-    poziciokmodel->setFilter("SzámlaId=" + szamlaid);
-    poziciokmodel->select();
+    QSqlTableModel *konyvelesmodel = new QSqlTableModel(this,maindb);
+    konyvelesmodel->setTable("konyveles");
+    konyvelesmodel->setFilter("SzámlaId=" + szamlaid);
+    konyvelesmodel->select();
 
-    ui->tableView_nyitott_poziciok->setModel(poziciokmodel);
+    ui->tableView_konyveles->setModel(konyvelesmodel);
+
+    QSqlTableModel *keszletmodel = new QSqlTableModel(this,maindb);
+    keszletmodel->setTable("keszlet");
+    keszletmodel->setFilter("SzámlaId=" + szamlaid);
+    keszletmodel->select();
+
+    ui->tableView_keszlet->setModel(keszletmodel);
 
     QSqlTableModel *megbizasokmodel = new QSqlTableModel(this,maindb);
     megbizasokmodel->setTable("megbizasok");
-    megbizasokmodel->setFilter("szamlaid=" + szamlaid);
+    megbizasokmodel->setFilter("SzámlaId=" + szamlaid);
     megbizasokmodel->select();
 
     ui->tableView_megbizasok->setModel(megbizasokmodel);
@@ -91,4 +98,10 @@ void MyMainWindow::on_comboBox_felhasznalok_currentIndexChanged(int index)
 
     ui->tableView_lezart_poziciok->setModel(lezart_poziciokmodel);
 
+    QSqlTableModel *muveletekmodel = new QSqlTableModel(this,maindb);
+    muveletekmodel->setTable("muveletek");
+    muveletekmodel->setFilter("SzámlaId=" + szamlaid);
+    muveletekmodel->select();
+
+    ui->tableView_muveletek->setModel(muveletekmodel);
 }
